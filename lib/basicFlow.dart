@@ -22,6 +22,21 @@ class HomeActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text(
+              'Home page'
+          ),
+        ),
+        body: Center(
+          child: Text(
+              "Hello Ridoy Paul",
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.blue,
+                fontWeight: FontWeight.w700,
+              )
+          ),
+        )
 
     );
   }
