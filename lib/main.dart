@@ -57,19 +57,44 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        'Home pge',
+        'Home page',
         style: TextStyle(
           color: Colors.amberAccent,
         ),
       ),
-      titleSpacing: 0,
-      centerTitle: true,
-      toolbarHeight: 60,
+      titleSpacing: 10,
+      toolbarHeight: 70,
       toolbarOpacity: 1,
       elevation: 6,
       backgroundColor: Colors.deepPurple,
+
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(0),
+      ),
+
+      actions: [
+        IconButton(onPressed: (){
+          print('clicked');
+        }, icon: (Icon(Icons.account_circle))),
+        IconButton(onPressed: (){}, icon: (Icon(Icons.account_circle))),
+        IconButton(onPressed: (){}, icon: (Icon(Icons.account_circle))),
+
+      ],
+
+      bottom: PreferredSize(
+        preferredSize: Size.fromHeight(4.0), // Adjust the height as needed
+        child: Container(
+          color: Colors.blue,
+          alignment: Alignment.center,
+          child: Text(
+            'Bottom Widget',
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
 
     );
