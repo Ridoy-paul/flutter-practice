@@ -33,11 +33,7 @@ class HomeActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Home page'
-        ),
-      ),
+      appBar: MyAppBar(),
       body: Center(
         child: Text(
           "Hello Ridoy Paul",
@@ -51,6 +47,32 @@ class HomeActivity extends StatelessWidget {
 
     );
   }
+}
 
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text(
+        'Home pge',
+        style: TextStyle(
+          color: Colors.amberAccent,
+        ),
+      ),
+      titleSpacing: 0,
+      centerTitle: true,
+      toolbarHeight: 60,
+      toolbarOpacity: 1,
+      elevation: 6,
+      backgroundColor: Colors.deepPurple,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0),
+      ),
+
+    );
+  }
 
 }
