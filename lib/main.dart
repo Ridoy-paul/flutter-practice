@@ -30,6 +30,8 @@ class MyApp extends StatelessWidget {
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,20 +51,45 @@ class HomeActivity extends StatelessWidget {
   }
 }
 
+class MySnackBar {
+  static void showSnackBar(BuildContext context, String mesage) {
+    final snackBar = SnackBar(
+      content: Text(mesage),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+}
+
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
+  // MySnackBar(mesage, context) {
+  //   return ScaffoldMessenger.of(context).showSnackBar(
+  //     SnackBar(content: Text(mesage)),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: IconButton(
+        onPressed: (){
+          MySnackBar.showSnackBar(context, "This is Menu Button!");
+          //MySnackBar("Hello I'm Leading Icon!", context);
+        },
+        icon: Icon(Icons.menu),
+        color: Colors.amberAccent,
+        iconSize: 35,
+      ),
+
       title: Text(
         'Home page',
         style: TextStyle(
           color: Colors.amberAccent,
         ),
       ),
-      titleSpacing: 10,
+      titleSpacing: 0,
       toolbarHeight: 70,
       toolbarOpacity: 1,
       elevation: 6,
@@ -81,6 +108,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       ],
 
+      /*
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(4.0), // Adjust the height as needed
         child: Container(
@@ -96,6 +124,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ),
+       */
 
     );
   }
