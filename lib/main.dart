@@ -30,12 +30,31 @@ class MyApp extends StatelessWidget {
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        //currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
+          BottomNavigationBarItem(icon: Icon(Icons.woman), label: 'Profile'),
+          //BottomNavigationBarItem(icon: Icon(Icons.safety_check), label: 'dddd'),
+         // BottomNavigationBarItem(icon: Icon(Icons.safety_check_outlined), label: 's'),
+        ],
+        onTap: (int index) {
+          if(index == 0) {
+            MySnackBar.showSnackBar(context, "This is Home");
+          }
+          else if(index == 1) {
+            MySnackBar.showSnackBar(context, "This is Cart");
+          }
+          else if (index == 2) {
+            MySnackBar.showSnackBar(context, "This is Profile");
+          }
+        }
+      ),
       body: Center(
         child: Text(
           "Hello Ridoy Paul",
@@ -55,6 +74,13 @@ class MySnackBar {
   static void showSnackBar(BuildContext context, String mesage) {
     final snackBar = SnackBar(
       content: Text(mesage),
+      duration: Duration(seconds: 1),
+      action: SnackBarAction(
+        label: 'Dismiss',
+        onPressed: () {
+
+        },
+      ),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
@@ -63,12 +89,6 @@ class MySnackBar {
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
-
-  // MySnackBar(mesage, context) {
-  //   return ScaffoldMessenger.of(context).showSnackBar(
-  //     SnackBar(content: Text(mesage)),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
