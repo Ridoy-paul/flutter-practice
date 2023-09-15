@@ -48,18 +48,22 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
+  //AppSideBar check = new AppSideBar();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _openDrawer() {
+    _scaffoldKey.currentState?.openDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        onPressed: (){
-          MySnackBar.showSnackBar(context, "This is Menu Button!");
-          //MySnackBar("Hello I'm Leading Icon!", context);
-        },
-        icon: Icon(Icons.menu),
-        color: Colors.amberAccent,
-        iconSize: 35,
-      ),
+      // leading: IconButton(
+      //   onPressed: _openDrawer,
+      //   icon: Icon(Icons.menu),
+      //   color: Colors.amberAccent,
+      //   iconSize: 35,
+      // ),
 
       title: Text(
         'Home page',
@@ -81,8 +85,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(onPressed: (){
           print('clicked');
         }, icon: (Icon(Icons.account_circle))),
-        IconButton(onPressed: (){}, icon: (Icon(Icons.account_circle))),
-        IconButton(onPressed: (){}, icon: (Icon(Icons.account_circle))),
+        IconButton(onPressed: (){}, icon: (Icon(Icons.shopping_cart))),
+        IconButton(onPressed: (){}, icon: (Icon(Icons.widgets_sharp))),
 
       ],
 
@@ -106,8 +110,23 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     );
   }
-
 }
 
 
 /// Navigation Drawer
+class AppSideBar extends StatelessWidget {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void openDrawer() {
+    _scaffoldKey.currentState?.openDrawer();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+
+    );
+  }
+
+}

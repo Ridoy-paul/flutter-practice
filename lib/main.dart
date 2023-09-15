@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +49,8 @@ class HomeActivity extends StatelessWidget {
             )
           ),
         ),
-      )
+      ),
+      drawer: AppSideBar(),
 
     );
   }
