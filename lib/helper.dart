@@ -5,7 +5,7 @@ class MyBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      //currentIndex: 0,
+      currentIndex: 0,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
@@ -24,7 +24,6 @@ class MyBottomNavBar extends StatelessWidget {
         }
     );
   }
-
 }
 
 class MySnackBar {
@@ -107,3 +106,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
 }
+
+
+/// Navigation Drawer

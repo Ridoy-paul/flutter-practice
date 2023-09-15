@@ -37,14 +37,16 @@ class HomeActivity extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(),
       bottomNavigationBar: MyBottomNavBar(),
-      body: Center(
-        child: Text(
-          "Hello Ridoy Paul",
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.blue,
-            fontWeight: FontWeight.w700,
-          )
+      body: SafeArea(
+        child: Center(
+          child: Text(
+            "Hello Ridoy Paul",
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.blue,
+              fontWeight: FontWeight.w700,
+            )
+          ),
         ),
       )
 
