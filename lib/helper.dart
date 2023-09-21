@@ -125,6 +125,19 @@ class AppSideBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      child: ListView(
+        children: [
+         DrawerHeader(
+              child: SafeArea(child: Text("RIDOY Paul"))
+          ),
+          ListTile(title: Text("Home"),),
+          ListTile(title: Text("Shop"),),
+          ListTile(title: Text("Brands"),),
+          ListTile(title: Text("About Us"),),
+          ListTile(title: Text("Contact Us"),),
+
+        ],
+      ),
 
     );
   }
